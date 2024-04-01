@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.20.0)
+
+project(dll_export_all)
+
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
+add_executable(${PROJECT_NAME} main.cpp)
+target_link_libraries(${PROJECT_NAME} hello_lib)
+
+add_library(hello_lib SHARED hello_lib.cpp hello_lib.h)
